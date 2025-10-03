@@ -48,27 +48,39 @@ h1 {
     margin-bottom: 10px;
 }
 
-.quiz-info {
+.form-group {
+    margin: 20px 0;
     text-align: left;
-    background-color: rgba(35, 35, 35, 0.616);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 25px 0;
-    border: 2px solid #00000000;
 }
 
-.quiz-info ul {
-    list-style-type: none;
-    padding-left: 0;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ffffff;
 }
 
-.quiz-info li {
-    padding: 8px 0;
-    padding-left: 30px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="%233498db" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: 0 center;
-    color: #e0e0e0;
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #3498db;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(152, 152, 152, 0.3);
+}
+
+.error-message {
+    color: #b40b0b;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
 }
 
 .start-button {
@@ -89,6 +101,8 @@ h1 {
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
+    border: none;
+    margin-top: 20px;
 }
 
 .start-button:hover {
@@ -108,25 +122,37 @@ h1 {
         0 2px 8px rgba(52, 152, 219, 0);
 }
 
+.start-button:disabled {
+    background: rgba(100, 100, 100, 0.5);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.start-button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 @keyframes pulse-glow {
     0% {
-        text-shadow: 0 0 5px #411e82a4,
-            0 0 10px #411e82a4 0 0 15px #411e82a4,
-            0 0 20px rgba(57, 17, 95, 0.7);
+        text-shadow: 0 0 5px #411e8200,
+            0 0 10px #411e8200 0 0 15px #411e8200,
+            0 0 20px rgba(57, 17, 95, 0);
     }
 
     50% {
-        text-shadow: 0 0 8px #411e82a4,
-            0 0 15px #411e82a4,
-            0 0 20px #411e82a4,
-            0 0 25px rgba(57, 17, 95, 0.7);
+        text-shadow: 0 0 8px #411e8200,
+            0 0 15px #411e8200,
+            0 0 20px #411e8200,
+            0 0 25px rgba(57, 17, 95, 0);
     }
 
     100% {
-        text-shadow: 0 0 5px #411e82a4,
-            0 0 10px #411e82a4,
-            0 0 15px #411e82a4,
-            0 0 20px rgba(57, 17, 95, 0.7);
+        text-shadow: 0 0 5px #411e8200,
+            0 0 10px #411e8200,
+            0 0 15px #411e8200,
+            0 0 20px rgba(57, 17, 95, 0);
     }
 }
 
@@ -136,6 +162,14 @@ h1 {
 
 .start-button:hover {
     animation: none;
+}
+
+.welcome-message {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(46, 46, 46, 0.318);
+    border-radius: 10px;
+    border: 1px solid #000000;
 }
 
 .category-page {
@@ -164,39 +198,6 @@ h2 {
     margin: 40px 0;
 }
 
-.category-button.topografie {
-    border: 3px solid #3498db;
-    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.3),
-        0 5px 15px rgba(52, 152, 219, 0.5);
-}
-
-.category-button.topografie:hover {
-    box-shadow: 0 0 0 6px rgba(52, 152, 219, 0.5),
-        0 8px 25px rgba(52, 152, 219, 0.7);
-}
-
-.category-button.muziek {
-    border: 3px solid #8f0d0d;
-    box-shadow: 0 0 0 4px rgba(154, 21, 21, 0.3),
-        0 5px 15px rgba(166, 23, 23, 0.5);
-}
-
-.category-button.muziek:hover {
-    box-shadow: 0 0 0 6px rgba(176, 20, 12, 0.5),
-        0 8px 25px rgba(170, 12, 12, 0.7);
-}
-
-.category-button.sport {
-    border: 3px solid #f4f4f4;
-    box-shadow: 0 0 0 4px rgba(198, 198, 198, 0.416),
-        0 5px 15px rgba(255, 255, 255, 0.371);
-}
-
-.category-button.sport:hover {
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.5),
-        0 8px 25px rgba(255, 255, 255, 0.7);
-}
-
 .category-button {
     flex: 1;
     background-size: cover;
@@ -218,6 +219,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid;
 }
 
 .category-button::before {
@@ -249,6 +251,39 @@ h2 {
 
 .category-button:active {
     transform: translateY(1px) scale(0.98);
+}
+
+.category-button.topografie {
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.3),
+        0 5px 15px rgba(52, 152, 219, 0.5);
+}
+
+.category-button.topografie:hover {
+    box-shadow: 0 0 0 6px rgba(52, 152, 219, 0.5),
+        0 8px 25px rgba(52, 152, 219, 0.7);
+}
+
+.category-button.muziek {
+    border-color: #8f0d0d;
+    box-shadow: 0 0 0 4px rgba(154, 21, 21, 0.3),
+        0 5px 15px rgba(166, 23, 23, 0.5);
+}
+
+.category-button.muziek:hover {
+    box-shadow: 0 0 0 6px rgba(176, 20, 12, 0.5),
+        0 8px 25px rgba(170, 12, 12, 0.7);
+}
+
+.category-button.sport {
+    border-color: #f4f4f4;
+    box-shadow: 0 0 0 4px rgba(198, 198, 198, 0.416),
+        0 5px 15px rgba(255, 255, 255, 0.371);
+}
+
+.category-button.sport:hover {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.5),
+        0 8px 25px rgba(255, 255, 255, 0.7);
 }
 
 .navigation {

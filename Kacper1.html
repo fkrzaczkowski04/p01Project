@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Quiz - Registratie</title>
     <link rel="stylesheet" href="/css/Kacper.css">
 </head>
 
 <body>
+   
+    <div id="registration-page" class="quiz-card">
+        <div class="quiz-icon">?</div>
+        <h1>Welkom bij de Quiz!</h1>
+        <p class="tagline">Voordat we beginnen...</p>
+        
+        <div class="form-group">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" placeholder="Kies een gebruikersnaam" maxlength="20">
+            <div id="username-error" class="error-message">Voer een geldige gebruikersnaam in (3-20 karakters)</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Leeftijd:</label>
+            <input type="number" id="age" placeholder="Voer je leeftijd in" min="1" max="120">
+            <div id="age-error" class="error-message">Voer een geldige leeftijd in (15-50)</div>
+        </div>
+        
+        <button class="start-button" id="register-button" onclick="registerUser()">Doorgaan naar Quiz</button>
+    </div>
 
-    <div id="start-page" class="quiz-card">
+   
+    <div id="start-page" class="quiz-card" style="display: none;">
         <div class="quiz-icon">?</div>
         <h1>Quiz</h1>
         <p class="tagline">Hoe goed ken je deze dingen?</p>
+        
+        <div class="welcome-message" id="welcome-message">
+            Welkom, <span id="display-username">gebruiker</span>! Je bent <span id="display-age">0</span> jaar oud.
+        </div>
+        
         <p>Doe mee met deze quiz en daag jezelf uit met vragen over Topografie, Muziek en Sport!</p>
 
         <div class="quiz-info">
@@ -29,7 +54,7 @@
     </div>
 
 
-    <div id="category-page" class="quiz-card category-page">
+    <div id="category-page" class="quiz-card category-page" style="display: none;">
         <div class="category-title">Kies Je Categorie</div>
 
         <h2>Selecteer je categorie van vragen</h2>
@@ -59,75 +84,6 @@
         </div>
     </div>
 
-    <script>
-        let selectedCategory = null;
-        
-        function showCategoryPage() {
-            document.getElementById('start-page').style.display = 'none';
-            document.getElementById('category-page').style.display = 'block';
-        }
-        
-        function showStartPage() {
-            document.getElementById('category-page').style.display = 'none';
-            document.getElementById('start-page').style.display = 'block';
-            resetSelection();
-        }
-        
-        function selectCategory(category) {
-            selectedCategory = category;
-            document.getElementById('selected-category').textContent = category;
-            document.getElementById('start-quiz-btn').disabled = false;
-            document.getElementById('start-quiz-btn').style.background = "rgba(52, 152, 219, 0.8)";
-            
-            
-            const buttons = document.querySelectorAll('.category-button');
-            buttons.forEach(button => {
-                
-                if (button.classList.contains('topografie')) {
-                    button.style.borderColor = "#3498db";
-                    button.style.boxShadow = "0 0 0 4px rgba(52, 152, 219, 0.3), 0 5px 15px rgba(52, 152, 219, 0.5)";
-                } else if (button.classList.contains('muziek')) {
-                    button.style.borderColor = "#9b59b6";
-                    button.style.boxShadow = "0 0 0 4px rgba(155, 89, 182, 0.3), 0 5px 15px rgba(155, 89, 182, 0.5)";
-                } else if (button.classList.contains('sport')) {
-                    button.style.borderColor = "#e74c3c";
-                    button.style.boxShadow = "0 0 0 4px rgba(231, 76, 60, 0.3), 0 5px 15px rgba(231, 76, 60, 0.5)";
-                }
-            });
-            
-          
-            event.currentTarget.style.borderColor = "#2ecc71";
-            event.currentTarget.style.boxShadow = "0 0 0 6px rgba(46, 204, 113, 0.4), 0 5px 15px rgba(46, 204, 113, 0.6)";
-        }
-        
-        function resetSelection() {
-            selectedCategory = null;
-            document.getElementById('start-quiz-btn').disabled = true;
-            document.getElementById('start-quiz-btn').style.background = "rgba(52, 152, 219, 0.3)";
-            
-            const buttons = document.querySelectorAll('.category-button');
-            buttons.forEach(button => {
-                
-                if (button.classList.contains('topografie')) {
-                    button.style.borderColor = "#3498db";
-                    button.style.boxShadow = "0 0 0 4px rgba(52, 152, 219, 0.3), 0 5px 15px rgba(52, 152, 219, 0.5)";
-                } else if (button.classList.contains('muziek')) {
-                    button.style.borderColor = "#9b59b6";
-                    button.style.boxShadow = "0 0 0 4px rgba(155, 89, 182, 0.3), 0 5px 15px rgba(155, 89, 182, 0.5)";
-                } else if (button.classList.contains('sport')) {
-                    button.style.borderColor = "#e74c3c";
-                    button.style.boxShadow = "0 0 0 4px rgba(231, 76, 60, 0.3), 0 5px 15px rgba(231, 76, 60, 0.5)";
-                }
-            });
-        }
-        
-        function startQuiz() {
-            if (selectedCategory) {
-                alert(`Quiz gestart met categorie: ${selectedCategory}!`);
-                
-            }
-        }
-    </script>
+    <script src="/java/Kacper.js"></script>
 </body>
-
 </html>
