@@ -10,7 +10,7 @@ function registerUser() {
     const age = parseInt(document.getElementById('age').value);
     let isValid = true;
 
-    
+
     if (username.length < 3 || username.length > 20) {
         document.getElementById('username-error').style.display = 'block';
         isValid = false;
@@ -18,7 +18,7 @@ function registerUser() {
         document.getElementById('username-error').style.display = 'none';
     }
 
-    
+
     if (isNaN(age) || age < 15 || age > 50) {
         document.getElementById('age-error').style.display = 'block';
         isValid = false;
@@ -26,16 +26,16 @@ function registerUser() {
         document.getElementById('age-error').style.display = 'none';
     }
 
-   
+
     if (isValid) {
         userData.username = username;
         userData.age = age;
-        
-        
+
+
         document.getElementById('display-username').textContent = username;
         document.getElementById('display-age').textContent = age;
-        
-       
+
+
         document.getElementById('registration-page').style.display = 'none';
         document.getElementById('start-page').style.display = 'block';
     }
@@ -58,7 +58,7 @@ function selectCategory(category) {
     document.getElementById('selected-category').textContent = category;
     document.getElementById('start-quiz-btn').disabled = false;
     document.getElementById('start-quiz-btn').style.background = "rgba(52, 152, 219, 0.8)";
-    
+
     const buttons = document.querySelectorAll('.category-button');
     buttons.forEach(button => {
         if (button.classList.contains('topografie')) {
@@ -72,7 +72,7 @@ function selectCategory(category) {
             button.style.boxShadow = "0 0 0 4px rgba(198, 198, 198, 0.416), 0 5px 15px rgba(255, 255, 255, 0.371)";
         }
     });
-    
+
     event.currentTarget.style.borderColor = "#ffffffed";
     event.currentTarget.style.boxShadow = "0 0 0 6px rgba(255, 255, 255, 0), 0 5px 15px rgba(255, 255, 255, 0.6)";
 }
@@ -81,7 +81,7 @@ function resetSelection() {
     selectedCategory = null;
     document.getElementById('start-quiz-btn').disabled = true;
     document.getElementById('start-quiz-btn').style.background = "rgba(52, 152, 219, 0.3)";
-    
+
     const buttons = document.querySelectorAll('.category-button');
     buttons.forEach(button => {
         if (button.classList.contains('topografie')) {
@@ -100,19 +100,19 @@ function resetSelection() {
 function startQuiz() {
     if (selectedCategory) {
         alert(`Quiz gestart met categorie: ${selectedCategory}! Gebruiker: ${userData.username}, Leeftijd: ${userData.age}`);
-        
+
     }
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('username').addEventListener('keypress', function(e) {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('username').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             registerUser();
         }
     });
-    
-    document.getElementById('age').addEventListener('keypress', function(e) {
+
+    document.getElementById('age').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             registerUser();
         }
