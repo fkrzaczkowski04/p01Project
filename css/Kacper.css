@@ -167,9 +167,9 @@ input:focus {
 .welcome-message {
     margin: 20px 0;
     padding: 15px;
-    background: rgba(46, 46, 46, 0.318);
+    background: rgba(46, 46, 46, 0.463);
     border-radius: 10px;
-    border: 1px solid #000000;
+    border: 1px solid #0000002d;
 }
 
 .category-page {
