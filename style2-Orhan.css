@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right, #5a5a5a, #b6b6b6, #ffffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+nav {
+    width: 100%;
+    background: rgba(33, 33, 33, 0.8);
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 15px 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+nav button {
+    background: #b6b6b6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background: #fff;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+header {
+    margin-top: 50px;
+    text-align: center;
+    color: #ffffff;
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.question {
+    background: rgba(33, 33, 33, 0.7);
+    max-width: 600px;
+    width: 90%;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.question p {
+    font-size: 1.4em;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+
+.answers {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;      
+    gap: 15px;                
+    margin-top: 25px;        
+}
+
+.answers button {
+    background: #b6b6b6;      
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 200px;            
+    text-align: center;
+}
+
+.answers button:hover {
+    background: #fff;
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .question {
+        padding: 30px 20px;
+    }
+
+    .answers button {
+        font-size: 0.95em;
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORHAN</title>
+    <link rel="stylesheet" href="/css/style-Orhan.css">
+    <script src="java/Thema-Orhan.js"></script>
+</head>
+
+<body>
+
+    <div id="start-page" class="quiz-card">
+        <div class="quiz-icon">?</div>
+        <h1>Quiz</h1>z
+        <p class="tagline">Hoe goed ken je deze dingen?</p>
+        <p>Doe mee met deze quiz en daag jezelf uit met vragen over Topografie, Muziek en Sport!</p>
+
+        <div class="quiz-info">
+            <ul>
+                <li><strong>20 vragen</strong> om je kennis te testen</li>
+                <li><strong>Multiple-choice</strong> antwoorden</li>
+                <li>Krijg direct feedback na elke vraag</li>
+                <li>Zie je score aan het einde!</li>
+            </ul>
+        </div>
+
+        <button class="start-button" onclick="showCategoryPage()">Start Quiz!</button>
+    </div>
+
+
+    <div id="category-page" class="quiz-card category-page">
+        <div class="category-title">Kies Je Categorie</div>
+
+        <h2>Selecteer je categorie van vragen</h2>
+
+        <div class="categories-container">
+            <button class="category-button topografie"
+                style="background-image: url('https://ozc-cascade.nl/wp-content/uploads/2022/03/topografie.jpg');"
+                onclick="selectCategory('Topografie')">
+                <span>Topografie</span>
+            </button>
+            <button class="category-button muziek"
+                style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi7sGqYs0efE2uD0Yo6mN9zjjLBg1wEvzB4A&s');"
+                onclick="selectCategory('Muziek')">
+                <span>Muziek</span>
+            </button>
+            <button class="category-button sport"
+                style="background-image: url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg');"
+                onclick="selectCategory('Sport')">
+                <span>Sport</span>
+            </button>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-button" onclick="showStartPage()">Terug</button>
+            <button class="nav-button" id="start-quiz-btn" onclick="startQuiz()" disabled>Start Quiz met <span
+                    id="selected-category">...</span></button>
+        </div>
+    </div>
+    <div id="nickname-page" class="quiz-card">
+        <h1>Welkom bij de Quiz!</h1>
+        <p>Vul je gegevens in om te beginnen:</p>
+
+        <label for="nickname">Nickname:</label><br>
+        <input type="text" id="nickname" placeholder="Kies een naam"><br><br>
+
+        <label for="age">Leeftijd:</label><br>
+        <input type="number" id="age" min="16" max="40" placeholder="Bijv.16"><br><br>
+
+        <button class="start-button" onclick="savePlayerInfo()">Ga verder</button>
+    </div>
+
+</body>
+
+</html>
