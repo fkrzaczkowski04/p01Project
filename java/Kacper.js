@@ -73,7 +73,7 @@ function selectCategory(category) {
         }
     });
 
-    event.currentTarget.style.borderColor = "#ffffffed";
+    event.currentTarget.style.borderColor = "#ffffffd0";
     event.currentTarget.style.boxShadow = "0 0 0 6px rgba(255, 255, 255, 0), 0 5px 15px rgba(255, 255, 255, 0.6)";
 }
 

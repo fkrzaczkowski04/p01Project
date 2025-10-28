@@ -79,7 +79,7 @@ input:focus {
 }
 
 .error-message {
-    color: #b40b0b;
+    color: #c70a0a;
     font-size: 14px;
     margin-top: 5px;
     display: none;
